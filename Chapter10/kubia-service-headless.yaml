@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-sts-pet-svc-headless
+spec:
+  clusterIP: None
+  selector:
+    app: kubia-sts-pet
+  ports:
+  - name: http
+    port: 44080

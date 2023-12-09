@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-jsweb-manual-v2
+  labels:       # 此pod具有两个标签，都在metadata中定义
+    creation_method: manual
+    env: prod
+spec:
+  containers:
+  - image: 192.168.56.138:5000/joelkhan/kubia-jsweb:v1
+    name: kubia-jsweb-v2
+    ports:
+    - containerPort: 8080
+      protocol: TCP

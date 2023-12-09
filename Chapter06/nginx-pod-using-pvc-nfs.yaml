@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-using-pvc-nfs
+spec:
+  containers:
+  - image: nginx:alpine
+    name: web-server
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: web-server-datadir
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  volumes:
+  - name: web-server-datadir
+    persistentVolumeClaim:
+      claimName: mongodb-pvc-nfs
+

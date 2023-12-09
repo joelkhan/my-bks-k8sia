@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-po-liveness-ch04
+  namespace: k8sia
+spec:
+  containers:
+  - image: k8fri.cluster.local/library/kubia-unhealthy:ch04
+    #image: 192.168.56.138:5000/joelkhan/kubia-jsweb-unhealthy:v1
+    name: kubia-liveness-ch04
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8080
+

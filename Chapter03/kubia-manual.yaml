@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-jsweb-manual
+spec:
+  containers:
+  - image: 192.168.56.138:5000/joelkhan/kubia-jsweb:v1
+    name: kubia-jsweb
+    ports:
+    - containerPort: 8080
+      protocol: TCP

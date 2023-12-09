@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongodb-pod-hostpath
+spec:
+  volumes:
+  - name: mongodb-data
+    # hostpath卷的名称
+    hostPath:
+    # hostpath卷在节点上的路径
+      path: /tmp/mongodb
+  containers:
+  - image: mongo
+    name: mongodb
+    volumeMounts:
+    - name: mongodb-data
+      # 引用hostpath卷
+      mountPath: /data/db
+      # hostpath卷挂载到容器的目录
+    ports:
+    - containerPort: 27017
+      protocol: TCP
+

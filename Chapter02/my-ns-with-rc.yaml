@@ -1,0 +1,30 @@
+kind: Namespace         #类型为Namespace
+apiVersion: v1          #版本号为v1
+metadata:
+  name: k8sia
+  labels:
+    name: my-k8sia-test
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: kubia-rc
+  namespace: k8sia
+  labels:
+    run: kubia-rc
+spec:
+  replicas: 3
+  selector:
+    run: kubia-pod
+  template:
+    metadata:
+      labels:
+        run: kubia-pod
+    spec:
+      containers:
+      - name: kubia-pod
+        image: k8fri.cluster.local/library/kubia:ch02
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+

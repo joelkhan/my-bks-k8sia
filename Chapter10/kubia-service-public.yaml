@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-sts-pet-svc-public
+spec:
+  selector:
+    app: kubia-sts-pet
+  ports:
+  - port: 44180
+    targetPort: 8080
