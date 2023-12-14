@@ -1,15 +1,15 @@
-kind: Namespace         #类型为Namespace
 apiVersion: v1          #版本号为v1
+kind: Namespace         #类型为Namespace
 metadata:
-  name: k8sia
+  name: my-bks-k8sia
   labels:
-    name: my-k8sia-test
+    name: my-bks-k8sia-ns
 ---
 apiVersion: v1
 kind: ReplicationController
 metadata:
   name: kubia-rc
-  namespace: k8sia
+  namespace: my-bks-k8sia
   labels:
     run: kubia-rc
 spec:
