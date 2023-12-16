@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: kubia-pod
-        image: k8fri.cluster.local/library/kubia:ch02
+        image: k8fri.tianshdemo.org/library/kubia_ch02:v1
         ports:
         - containerPort: 8080
           protocol: TCP
