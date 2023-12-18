@@ -14,6 +14,9 @@ var handler = function(request, response) {
     return;
   }
   response.writeHead(200);
+  // 这个效果需要在curl的响应中查看，而不是kubectl logs中，那里是控制台
+  // 快速映射pod服务的方法是使用如下命令：
+  // kubectl port-forward target_pod_name your_node_port:target_pod_port
   response.end("You've hit " + os.hostname() + ", " 
 	+ requestCount + " times.\n");
 };
