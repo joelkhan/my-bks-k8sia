@@ -2,6 +2,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: multi-completion-batch-job
+  # pod串行的job
+  namespace: my-bks-k8sia
 spec:
   completions: 5
   template:
@@ -12,6 +14,5 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: main
-        image: luksa/batch-job
-
+        image: k8fri.tianshdemo.org/library/job_will_finish:v1
 

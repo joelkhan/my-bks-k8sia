@@ -1,9 +1,10 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: batch-job-every-fifteen-minutes
+  name: batch-job-every-3-minutes
+  namespace: my-bks-k8sia
 spec:
-  schedule: "0,15,30,45 * * * *"
+  schedule: "*/3 * * * *"
   jobTemplate:
     spec:
       template:
@@ -14,4 +15,4 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: main
-            image: luksa/batch-job
+            image: k8fri.tianshdemo.org/library/job_will_finish:v1

@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: ssd-monitor
+  namespace: my-bks-k8sia
 spec:
   selector:
     matchLabels:
@@ -15,5 +16,5 @@ spec:
         disk: ssd
       containers:
       - name: main
-        image: k8fri.cluster.local/library/ssd_is_running:latest
+        image: k8fri.tianshdemo.org/library/ssd_daemon:v1
 

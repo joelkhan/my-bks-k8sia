@@ -1,14 +1,15 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: batch-job
+  name: my-job
+  namespace: my-bks-k8sia
 spec:
   template:
     metadata:
       labels:
-        app: batch-job
+        app: my-job
     spec:
       restartPolicy: OnFailure
       containers:
       - name: main
-        image: k8fri.cluster.local/library/batch-job:v1
+        image: k8fri.tianshdemo.org/library/job_will_finish:v1
