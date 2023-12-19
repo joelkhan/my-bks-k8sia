@@ -2,8 +2,12 @@ apiVersion: v1
 kind: Endpoints
 metadata:
   name: external-service
+  # 这个名称必须和服务的名称匹配！
+  namespace: my-bks-k8sia
 subsets:
   - addresses:
     - ip: 192.168.3.196
+    # 集群外部服务的IP，比如和node同网段的主机
     ports:
     - port: 33180
+    # 外部服务的端口
