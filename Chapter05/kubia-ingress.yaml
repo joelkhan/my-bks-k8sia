@@ -9,8 +9,9 @@ spec:
   - host: kubia-ingress.example.com
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: kubia-svc-ch05-nodeport
-          servicePort: 40080
+          serviceName: kubia-svc-ch05
+          servicePort: 33080
 

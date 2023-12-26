@@ -18,6 +18,7 @@ spec:
         - name: http
           containerPort: 8080
         readinessProbe:
+        # 定义了就绪探针
           exec:
             command:
             - ls
