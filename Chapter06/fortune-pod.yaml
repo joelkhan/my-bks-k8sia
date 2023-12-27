@@ -15,6 +15,7 @@ spec:
     - name: html
       mountPath: /usr/share/nginx/html
       readOnly: true
+      # 将卷挂载为只读
     ports:
     - containerPort: 80
       protocol: TCP
