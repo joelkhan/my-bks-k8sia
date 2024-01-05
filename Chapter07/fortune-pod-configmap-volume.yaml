@@ -2,9 +2,10 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: fortune-configmap-volume
+  namespace: my-bks-k8sia
 spec:
   containers:
-  - image: luksa/fortune:env
+  - image: k8fri.tianshdemo.org/library/fortune:env
     env:
     - name: INTERVAL
       valueFrom:
@@ -37,3 +38,4 @@ spec:
   - name: config
     configMap:
       name: fortune-config
+

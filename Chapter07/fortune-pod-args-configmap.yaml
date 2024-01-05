@@ -6,12 +6,14 @@ spec:
   containers:
   - image: luksa/fortune:args
     env:
+    # 如果需要传递ConfigMap中的所有变量，需要使用envFrom语法
     - name: INTERVAL
       valueFrom: 
         configMapKeyRef:
           name: fortune-config
           key: sleep-interval
     args: ["$(INTERVAL)"]
+    # 在向dockerfile中传递参数时，无法直接引用ConfigMap中的变量，需要间接地引用env变量
     name: html-generator
     volumeMounts:
     - name: html

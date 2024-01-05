@@ -4,3 +4,4 @@ metadata:
   name: fortune-config
 data:
   sleep-interval: "25"
+

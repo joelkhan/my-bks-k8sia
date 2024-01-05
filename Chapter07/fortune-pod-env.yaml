@@ -2,9 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: fortune-env
+  namespace: my-bks-k8sia
 spec:
   containers:
   - image: luksa/fortune:env
+    # 环境变量是容器级别的，不是pod级别的
     env:
     - name: INTERVAL
       value: "30"
