@@ -6,6 +6,8 @@ console.log("Kubia server starting...");
 var requestCount = 0;
 
 var handler = function(request, response) {
+  // 当使用kubectl logs -f kubia-liveness观察重启过程时，
+  // 会发现实际输出了8条日志，这是因为默认情况下#failure=3（连续3次失败后重启容器）
   console.log("Received request from " + request.connection.remoteAddress);
   requestCount++;
   if (requestCount > 5) {  // 服务器响应超过5次后将返回500错误
