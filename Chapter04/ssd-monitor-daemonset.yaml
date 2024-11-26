@@ -2,19 +2,18 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: ssd-monitor
-  namespace: my-bks-k8sia
+  #namespace: my-bks-k8sia
 spec:
   selector:
-    matchLabels:
+    matchLabels:  # 指出ds所监管的pod标签
       app: ssd-monitor
-  template:
+  template: # pod模板
     metadata:
-      labels:
+      labels: # pod自己的标签
         app: ssd-monitor
     spec:
-      nodeSelector:
+      nodeSelector: # pod将要选择的节点的标签
         disk: ssd
       containers:
       - name: main
-        image: k8fri.tianshdemo.org/library/ssd_daemon:v1
-
+        image: k8s-mas.cluster.local/library/ssd-monitor:latest

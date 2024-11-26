@@ -1,15 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: my-job
-  namespace: my-bks-k8sia
+  name: batch-job-multi-completion
 spec:
+  completions: 5   # 5个pod串行的job
   template:
     metadata:
       labels:
-        app: my-job
+        app: batch-job
     spec:
       restartPolicy: OnFailure
       containers:
       - name: main
-        image: k8fri.tianshdemo.org/library/job_will_finish:v1
+        image: k8s-mas.cluster.local/library/batch-job:latest
+

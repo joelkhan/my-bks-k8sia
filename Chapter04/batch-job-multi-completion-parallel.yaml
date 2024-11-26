@@ -1,12 +1,11 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: multi-completion-batch-job
-  namespace: my-bks-k8sia
+  name: batch-job-multi-completion-parallel
 spec:
+  # 一共完成5个pod运行，分为2个组并行执行（可以理解为2个执行的队列）
   completions: 5
   parallelism: 2
-  # 一共完成5次pod运行，期间最多可以有2个pod并行
   template:
     metadata:
       labels:
@@ -15,4 +14,4 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: main
-        image: k8fri.tianshdemo.org/library/job_will_finish:v1
+        image: k8s-mas.cluster.local/library/batch-job:latest

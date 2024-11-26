@@ -1,9 +1,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: time-limited-batch-job
+  name: batch-job-time-limited
 spec:
-  activeDeadlineSeconds: 30
+  activeDeadlineSeconds: 30   # 指定job等待pod完成其任务的最长时间
   template:
     metadata:
       labels:
@@ -12,6 +12,4 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: main
-        image: luksa/batch-job
-
-
+        image: k8s-mas.cluster.local/library/batch-job:latest

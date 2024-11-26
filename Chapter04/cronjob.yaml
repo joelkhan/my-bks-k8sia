@@ -1,8 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: batch-job-every-3-minutes
-  namespace: my-bks-k8sia
+  name: batch-job-every3min
 spec:
   schedule: "*/3 * * * *"
   jobTemplate:
@@ -10,9 +9,9 @@ spec:
       template:
         metadata:
           labels:
-            app: periodic-batch-job
+            app: batch-job-every3min
         spec:
           restartPolicy: OnFailure
           containers:
           - name: main
-            image: k8fri.tianshdemo.org/library/job_will_finish:v1
+            image: k8s-mas.cluster.local/library/batch-job:latest

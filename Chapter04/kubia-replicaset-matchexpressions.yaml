@@ -9,7 +9,7 @@ spec:
       - key: app
         operator: In
         values:
-         - kubia
+          - kubia
   template:
     metadata:
       labels:
