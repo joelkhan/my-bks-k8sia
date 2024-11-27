@@ -8,11 +8,9 @@ spec:
   - host: kubia.example.com
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
-          service: 
-            name: kubia-svc-nodeport
-            port: 
-              number: 40080
+          serviceName: kubia-svc-nodeport
+          servicePort: 40080
 

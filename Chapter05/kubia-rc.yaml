@@ -1,19 +1,16 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: kubia-rc-ch05
-  namespace: my-bks-k8sia
+  name: kubia-rc
 spec:
-  replicas: 3
-  selector:    # 这是rc的选择器
-    app: kubia
+  replicas: 2
   template:
     metadata:
-      labels:    # 这是pod上的标签
+      labels:    # 这是pod上的标签，rc依赖这个标签管理pod，svc依赖这个标签选择endpoints
         app: kubia
     spec:
       containers:
       - name: kubia
-        image: k8fri.tianshdemo.org/library/kubia_ch02:v1
+        image: k8s-mas.cluster.local/library/kubia:latest
         ports:
         - containerPort: 8080

@@ -1,11 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: external-service
-  namespace: my-bks-k8sia
-  # 没有定义选择器的服务不会创建endpoint对象
+  name: external-service    # 没有定义选择器的服务不会创建endpoint对象
 spec:
   ports:
-  - port: 33880
-    # 这是服务的监听端口
+  - port: 33880       # 这是服务的监听端口
 
