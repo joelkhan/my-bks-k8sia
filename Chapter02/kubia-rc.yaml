@@ -5,7 +5,7 @@ metadata:
   labels:
     run: kubia-rc
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     run: kubia-pod
   template:
@@ -14,8 +14,8 @@ spec:
         run: kubia-pod
     spec:
       containers:
-      - name: kubia-pod
-        image: k8fri.cluster.local/library/kubia:ch02
+      - name: kubia
+        image: k8mas.cluster.local/library/kubia:ch02
         ports:
         - containerPort: 8080
           protocol: TCP

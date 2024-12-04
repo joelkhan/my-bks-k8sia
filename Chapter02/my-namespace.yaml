@@ -1,6 +1,6 @@
 kind: Namespace         #类型为Namespace
 apiVersion: v1          #版本号为v1
 metadata:
-  name: k8sia
+  name: my-bks-k8sia
   labels:
     name: my-k8sia-test
