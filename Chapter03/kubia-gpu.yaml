@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   name: kubia-gpu
 spec:
-  nodeSelector:
+  nodeSelector:     # 利用节点标签选择器，将po调度到特定的node上
     gpu: "true"
   containers:
-  - image: k8s-mas.cluster.local/library/kubia:latest
+  - image: k8mas.cluster.local/library/kubia:ch02
     name: kubia

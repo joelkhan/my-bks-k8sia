@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubia-jsweb-manual
+  name: kubia-po-manual
 spec:
   containers:
-  - image: k8s-mas.cluster.local/library/kubia:latest
-    name: kubia-jsweb
+  - image: k8mas.cluster.local/library/kubia:ch02
+    name: kubia
     ports:
     - containerPort: 8080
       protocol: TCP
