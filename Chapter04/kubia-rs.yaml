@@ -2,9 +2,9 @@ apiVersion: apps/v1     # 格式：API组/实际版本
 kind: ReplicaSet
 metadata:
   name: kubia-rs
-  namespace: my-bks-k8sia
+  #namespace: my-bks-k8sia
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: kubia
@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: kubia
-        image: k8fri.tianshdemo.org/library/kubia_ch02:v1
+        image: k8mas.cluster.local/library/kubia:ch02
         ports:
         - containerPort: 8080

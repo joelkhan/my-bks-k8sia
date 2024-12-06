@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubia-po-liveness-ch04
+  name: kubia-unhealthy
   #namespace: my-bks-k8sia
 spec:
   containers:
-  - image: k8s-mas.cluster.local/library/kubia-unhealthy:latest
-    name: kubia-liveness-ch04
+  - image: k8mas.cluster.local/library/kubia-unhealthy:ch04
+    name: kubia-unhealthy
+    ports:
+    - containerPort: 8080
+      protocol: TCP
     livenessProbe:
       httpGet:
         path: /

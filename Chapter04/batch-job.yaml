@@ -1,5 +1,5 @@
 apiVersion: batch/v1
-kind: Job
+kind: Job      # 执行一次性的任务，本例运行了1个pod
 metadata:
   name: batch-job
 spec:
@@ -8,7 +8,7 @@ spec:
       labels:
         app: batch-job
     spec:
-      restartPolicy: OnFailure
+      restartPolicy: OnFailure   # 默认策略为Always，但Job只能使用OnFailure或Never。
       containers:
-      - name: main
-        image: k8s-mas.cluster.local/library/batch-job:latest
+      - name: batch-job
+        image: k8mas.cluster.local/library/batch-job:ch04

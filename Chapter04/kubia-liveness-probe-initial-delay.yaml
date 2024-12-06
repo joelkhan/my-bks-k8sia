@@ -4,11 +4,11 @@ metadata:
   name: kubia-liveness
 spec:
   containers:
-  - image: k8s-mas.cluster.local/library/kubia-unhealthy:latest
+  - image: k8mas.cluster.local/library/kubia-unhealthy:ch04
     name: kubia
     livenessProbe:
       httpGet:
         path: /
         port: 8080
-      initialDelaySeconds: 15
+      initialDelaySeconds: 15       # 在开始第1次探测前，等待15秒
 

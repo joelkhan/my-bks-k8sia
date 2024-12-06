@@ -13,5 +13,5 @@ spec:
     spec:
       restartPolicy: OnFailure
       containers:
-      - name: main
-        image: k8s-mas.cluster.local/library/batch-job:latest
+      - name: batch-job
+        image: k8mas.cluster.local/library/batch-job:ch04

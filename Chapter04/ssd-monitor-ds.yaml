@@ -15,5 +15,5 @@ spec:
       nodeSelector: # pod将要选择的节点的标签
         disk: ssd
       containers:
-      - name: main
-        image: k8s-mas.cluster.local/library/ssd-monitor:latest
+      - name: ssd-monitor
+        image: k8mas.cluster.local/library/ssd-monitor:ch04
